@@ -1,41 +1,36 @@
 "use client"
-import { useAnimate } from "framer-motion";
+import { useAnimate, motion } from "framer-motion";
+
 
 const UseAnimate = () => {
     const [scope, animate] = useAnimate();
 
-    const handleAnimate = async () => {
-        console.log("Animating")
-        await animate("#target", { x: 150 })
-        await animate("#target", { y: 150, rotate: 360 }, { duration: 0.5})
-        await animate("#target", {borderRadius: "100%"}, {duration: 0.5})
-        await animate("#target", {
-            x: -150,
-            borderRadius: "25px",
-            rotate: 180,
-            backgroundColor: "#f59e0b",
-        })
-        await animate("button", { rotate: 360 })
-        await animate("#target", {
-            y: 0,
-            borderRadius: "0px",
-            rotate: 0,
-        }, { duration: 0.5 })
-        await animate("#target", { x: 0 , backgroundColor: "#4f46e5"}, { duration: 0.5 })
-
-        await animate("button", { rotate: 0 })
-
-    }
+    
 
 
     return (
         <div ref={scope}>
-            <div id="target" className="h-24 w-24 bg-violet-500" />
-            <button
-                onClick={() => handleAnimate()}
-                className="mt-4 rounded-md bg-slate-900 px-4 py-2 text-white">
-                Trigger Animation
-            </button>
+            <motion.div whileHover={{
+                scale: 1.6,
+                x: 30,
+                rotate: 35,
+                borderRadius: "50%",
+                transition: {
+                    duration: 0.9
+                }
+            }} 
+            animate={{
+                scale: 1,
+                x: 0,
+                rotate: 0,
+                borderRadius: "0%",
+                transition: {
+                    duration: 0.9
+            
+                }
+            }}
+            id="target" className=" h-24 w-24 bg-violet-500" />
+           
 
         </div>
     )
