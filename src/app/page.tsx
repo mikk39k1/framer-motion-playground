@@ -1,5 +1,4 @@
 import UseAnimate from "@/components/UseAnimate";
-import Image from "next/image";
 
 export default function Home() {
   return (
