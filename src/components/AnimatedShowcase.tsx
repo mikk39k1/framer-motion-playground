@@ -30,6 +30,8 @@ const AnimatedShowcase = () => {
         { src: "/images/claude3.png", alt: "claude3", width: 80, height: 80 },
     ];
 
+    const backgroundImage = "/images/animated-showcase.jpg";
+
     useEffect(() => {
         const lowerContainer = lowerContainerRef.current;
         const upperContainer = upperContainerRef.current;
@@ -65,7 +67,7 @@ const AnimatedShowcase = () => {
     return (
         <div
             style={{
-                backgroundImage: "url('/images/animated-showcase.jpg')",
+                backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat"
