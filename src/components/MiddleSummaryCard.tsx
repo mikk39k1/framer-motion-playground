@@ -2,10 +2,10 @@ import Image from "next/image";
 
 const MiddleSummaryCard = () => {
     return (
-        <div className="flex flex-col justify-between w-[280px] h-[350px] border-4 bg-white border-[#8000ff] rounded-2xl shadow-2xl p-4 py-6">
+        <div className="flex flex-col justify-between w-[260px] h-[320px] border-4 bg-white border-[#8000ff] rounded-2xl shadow-2xl p-4 py-6">
             <div className="flex items-center justify-between mr-3">
                 <div>
-                    <div className="relative w-[60px] h-[60px] border-2 border-[#f0f0f0] rounded-2xl mt-2 ml-2 overflow-visible">
+                    <div className="relative w-[50px] h-[50px] border-2 border-[#f0f0f0] rounded-2xl mt-2 ml-2 overflow-visible">
                         <Image
                             className="absolute left-2 -top-3"
                             src="/images/check-mark.png"
@@ -15,7 +15,7 @@ const MiddleSummaryCard = () => {
                         />
                     </div>
 
-                    <div className="w-[60px] h-[60px] border-2 border-[#f0f0f0] rounded-2xl mt-6 ml-2" />
+                    <div className="w-[50px] h-[50px] border-2 border-[#f0f0f0] rounded-2xl mt-6 ml-2" />
                 </div>
                 <div>
                     <Image
@@ -27,9 +27,9 @@ const MiddleSummaryCard = () => {
                 </div>
 
             </div>
-            <div className="flex justify-between items-center mx-2">
-                <div className="h-[45px] w-[45px] bg-[#f0f0f0] rounded-full" />
-                <div className="h-[35px] w-[155px] bg-[#f0f0f0] rounded-lg" />
+            <div className="flex justify-between items-center mx-2 mt-4">
+                <div className="h-[40px] w-[40px] bg-[#f0f0f0] rounded-full" />
+                <div className="h-[35px] w-[150px] bg-[#f0f0f0] rounded-lg" />
             </div>
             <div className="w-full flex justify-center items-center">
                 <button
