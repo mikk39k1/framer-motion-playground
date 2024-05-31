@@ -1,5 +1,5 @@
 "use client";
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const ImageWheel = () => {
@@ -26,11 +26,9 @@ const ImageWheel = () => {
     const containerSize = 600;
     const rotationDuration = 30;
 
-
     return (
-
         <motion.div
-            className={`h-[${containerSize}px] w-[${containerSize}px] relative flex justify-center items-center`}
+            className={`h-[${containerSize}px] w-[${containerSize}px] relative`}
             animate={{
                 rotate: 360,
             }}
@@ -66,13 +64,12 @@ const ImageWheel = () => {
                             }}
                         >
                             <Image
-                                className='rounded-full border border-gray-50 shadow-md'
+                                className='rounded-full'
                                 src={outerImage.src}
                                 alt={outerImage.alt}
                                 width={outerImage.width}
                                 height={outerImage.height}
                             />
-
                         </motion.div>
                     </motion.div>
                 );
@@ -88,58 +85,53 @@ const ImageWheel = () => {
                     ease: 'linear'
                 }}
             >
-                { innerImages.map((innerImage, index) => {
-                        const angle = (index / innerImages.length) * Math.PI * 2;
-                        const x = innerRadius * Math.cos(angle) - innerImage.width / 2;
-                        const y = innerRadius * Math.sin(angle) - innerImage.height / 2;
-                        return (
+                {innerImages.map((innerImage, index) => {
+                    const angle = (index / innerImages.length) * Math.PI * 2;
+                    const x = innerRadius * Math.cos(angle) - innerImage.width / 2;
+                    const y = innerRadius * Math.sin(angle) - innerImage.height / 2;
+                    return (
+                        <motion.div
+                            key={index}
+                            className='absolute'
+                            style={{
+                                left: `calc(50% + ${x}px)`,
+                                top: `calc(50% + ${y}px)`,
+                            }}
+                        >
                             <motion.div
-                                key={index}
-                                className='absolute'
-                                style={{
-                                    left: `calc(50% + ${x}px)`,
-                                    top: `calc(50% + ${y}px)`,
+                                animate={{
+                                    rotate: [0, 360],
+                                }}
+                                transition={{
+                                    repeat: Infinity,
+                                    repeatType: 'loop',
+                                    duration: rotationDuration,
+                                    ease: 'linear'
                                 }}
                             >
-                                <motion.div
-                                    animate={{
-                                        rotate: [0, 360],
-                                    }}
-                                    transition={{
-                                        repeat: Infinity,
-                                        repeatType: 'loop',
-                                        duration: rotationDuration,
-                                        ease: 'linear'
-                                    }}
-                                >
-                                    <Image
-                                        className='rounded-full border border-gray-50 shadow-md'
-                                        src={innerImage.src}
-                                        alt={innerImage.alt}
-                                        width={innerImage.width}
-                                        height={innerImage.height}
-                                    />
-                                    
-                                </motion.div>
-                                
+                                <Image
+                                    className='rounded-full shadow-xl'
+                                    src={innerImage.src}
+                                    alt={innerImage.alt}
+                                    width={innerImage.width}
+                                    height={innerImage.height}
+                                />
                             </motion.div>
-
-                        )
-
-                    })
-                }
-                
+                        </motion.div>
+                    );
+                })}
             </motion.div>
-            <motion.div 
-            animate={{
-                rotate: -360,
-            }}
-            transition={{
-                repeat: Infinity,
-                duration: rotationDuration,
-                ease: 'linear'
-            }}
-            className='absolute border border-gray-50 rounded-full p-5 shadow-md'>
+            <motion.div
+                className='absolute'
+                animate={{
+                    rotate: -360,
+                }}
+                transition={{
+                    repeat: Infinity,
+                    duration: rotationDuration,
+                    ease: 'linear'
+                }}
+            >
                 <Image
                     src='/images/intelliOptima-logo.png'
                     alt='intelliOptima logo'
@@ -148,8 +140,6 @@ const ImageWheel = () => {
                 />
             </motion.div>
         </motion.div>
-
-
     );
 }
 
