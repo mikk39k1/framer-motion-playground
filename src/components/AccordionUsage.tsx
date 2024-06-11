@@ -9,6 +9,8 @@ import Image from "next/image";
 
 const AccordionUsage = () => {
     return (
+
+    
         <Accordion type="single" collapsible>
             <AccordionItem className="border-2 border-[#b872ff] my-6 p-2 rounded-2xl shadow-xl" value="item-1">
                 <AccordionTrigger className="w-[500px] text-[22px]">
@@ -53,7 +55,7 @@ const AccordionUsage = () => {
                 </AccordionContent>
             </AccordionItem>
         </Accordion>
-
+    
     )
 }
 export default AccordionUsage;
